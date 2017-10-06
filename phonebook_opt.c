@@ -7,7 +7,6 @@
 /* TODO: FILL YOUR OWN IMPLEMENTATION HERE! */
 entry **entryList = NULL;
 entry **entryListHead = NULL;
-
 entry *findName(char lastName[], entry *pHead)
 {
     pHead=*(entryListHead+lastName[0]-97);
@@ -21,7 +20,6 @@ entry *findName(char lastName[], entry *pHead)
 
 entry *append(char lastName[], entry *e)
 {
-    /* allocate memory for the new entry and put lastName */
     if(entryList==NULL) {
         entryList = (entry **) malloc(sizeof(entry *)*26);
         entryListHead= (entry **) malloc(sizeof(entry *)*26);
@@ -38,6 +36,6 @@ entry *append(char lastName[], entry *e)
     e = e->pNext;
     strcpy(e->lastName, lastName);
     e->pNext = NULL;
-    *(entryList + lastName[0] - 'a') = e;
+    *(entryList + lastName[0] - 97) = e;
     return e;
 }
